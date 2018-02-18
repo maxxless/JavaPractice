@@ -46,7 +46,7 @@ public final class Fruit {
 	}
 	
 	public void setWeight(double Weight) {
-	    GeneralWeight = GeneralWeight - this.Weight + Weight;
+	        GeneralWeight = GeneralWeight - this.Weight + Weight;
 		this.Weight=Weight;
 	}
 	
@@ -76,10 +76,10 @@ public final class Fruit {
 		setWeight(Weight);
 	}
 	
-    @Override
-    public String toString() {
+        @Override
+     	public String toString() {
 		return getColour() + " " + getName() + " in the quantity of " + getQuantity() + " weighs " + getWeight() + " kg and thus costs " + getPrice() + " hrn." ;
-    }
+        }
 	
 	public static void printStaticSum() {
 		System.out.println("Now total fruits' weight is " + GeneralWeight + " kg.");
