@@ -10,6 +10,32 @@ public final class Fruit {
         
 	private static double GeneralWeight = 0.0;
 	
+	public Fruit() {
+		Name = "Apple";
+		Colour = "Red";
+		Quantity = 2;
+		Price = 18.5;
+		Weight = 0.25;
+		GeneralWeight += (Weight*Quantity);
+	}
+	
+	public Fruit(String Name, String Colour, int Quantity, double Price){
+		setName(Name);
+		setColour(Colour);
+		setQuantity(Quantity);
+		setPrice(Price);
+		Weight = 0.87;
+		GeneralWeight += (Weight*Quantity);
+	}
+	
+	public Fruit(String Name, String Colour, int Quantity, double Price, double Weight){
+		setName(Name);
+		setColour(Colour);
+		setQuantity(Quantity);
+		setPrice(Price);
+		setWeight(Weight);
+	}
+	
 	public String getName() {
 		return Name;
 	}
@@ -50,32 +76,6 @@ public final class Fruit {
 		this.Weight=Weight;
 	}
 	
-	private Fruit() {
-		Name = "Apple";
-		Colour = "Red";
-		Quantity = 2;
-		Price = 18.5;
-		Weight = 0.25;
-		GeneralWeight += (Weight*Quantity);
-	}
-	
-	private Fruit(String Name, String Colour, int Quantity, double Price){
-		setName(Name);
-		setColour(Colour);
-		setQuantity(Quantity);
-		setPrice(Price);
-		Weight = 0.87;
-		GeneralWeight += (Weight*Quantity);
-	}
-	
-	private Fruit(String Name, String Colour, int Quantity, double Price, double Weight){
-		setName(Name);
-		setColour(Colour);
-		setQuantity(Quantity);
-		setPrice(Price);
-		setWeight(Weight);
-	}
-	
         @Override
      	public String toString() {
 		return getColour() + " " + getName() + " in the quantity of " + getQuantity() + " weighs " + getWeight() + " kg and thus costs " + getPrice() + " hrn." ;
@@ -98,18 +98,18 @@ public final class Fruit {
 	}
 
 	public static void main(String[] args) {
-		Fruit Apple = new Fruit();
-		Fruit Pineapple = new Fruit("Pineapple", "Brown", 1, 110.0);
-		Fruit Pear = new Fruit("Pear", "Yellow", 5, 22.0, 1.35);
+		Fruit apple = new Fruit();
+		Fruit pineapple = new Fruit("Pineapple", "Brown", 1, 110.0);
+		Fruit pear = new Fruit("Pear", "Yellow", 5, 22.0, 1.35);
 		
-		System.out.println(Apple.toString());
-		System.out.println(Pineapple.toString());
-		System.out.println(Pear.toString());
+		System.out.println(apple.toString());
+		System.out.println(pineapple.toString());
+		System.out.println(pear.toString());
 		
 		Fruit.printStaticSum();
 		
-		Apple.printSum();
-		Pineapple.printSum();
-		Pear.printSum();
+		apple.printSum();
+		pineapple.printSum();
+		pear.printSum();
 	}
 }
