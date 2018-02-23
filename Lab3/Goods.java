@@ -2,19 +2,23 @@ package chemicalsupplystore;
 
 import java.util.ArrayList;
 
-public class Goods {
+public abstract class Goods {
     
     private String type;
     private String manufacturer;
-    private double price;
+    double price;
     private int amount;
     private boolean availability;
 
+    public abstract GoodsType getGoodsType();
+    public abstract GoodsColour getGoodsColour();
+    
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
+        amount += 1;
         this.type = type;
     }
 

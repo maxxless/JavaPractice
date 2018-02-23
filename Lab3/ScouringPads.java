@@ -1,11 +1,21 @@
 package chemicalsupplystore;
 
-public class ScouringPads {
+public class ScouringPads extends Goods {
     
+    private final GoodsType goodsType = GoodsType.SCOURING_PADS;
+    private final GoodsColour goodsColour = GoodsColour.YELLOW;
     private String material;
     private double rigidity;
     private double weight;
     private String colour;
+
+    public ScouringPads(double price, String material, double rigidity, double weight, String colour) {
+        setPrice(price);
+        this.material = material;
+        this.rigidity = rigidity;
+        this.weight = weight;
+        this.colour = colour;
+    }
 
     public String getMaterial() {
         return material;
@@ -39,5 +49,14 @@ public class ScouringPads {
         this.colour = colour;
     }
     
-   
+    @Override
+    public GoodsType getGoodsType() {
+        return goodsType;
+    }
+    
+    @Override
+    public GoodsColour getGoodsColour() {
+        return goodsColour;
+    }
 }
+

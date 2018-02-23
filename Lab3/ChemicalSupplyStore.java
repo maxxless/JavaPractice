@@ -1,21 +1,48 @@
 package chemicalsupplystore;
 
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ChemicalSupplyStore {
     
+    static int generalGoodsAmount = 6;
     private String storeName;
     private String address;
     private int goodsAmount;
     private String workingHours;
-    private ArrayList goodsList;
+    private List<Goods> goodsList = new LinkedList<>();
 
-    public ChemicalSupplyStore(String storeName, String address, int goodsAmount, String workingHours, ArrayList goodsList) {
+    public ChemicalSupplyStore() {
+    }
+    
+    public ChemicalSupplyStore(String storeName, String address, int goodsAmount, String workingHours, List<Goods> goodsList) {
 		setStoreName(storeName);
 		setAddress(address);
 		setGoodsAmount(goodsAmount);
 		setWorkingHours(workingHours);
 		setGoodsList(goodsList);
+    }
+    
+    public void sortByPrice(List<Goods> result) {
+        result.sort(new Comparator<Goods>() {
+            @Override
+            public int compare(Goods t1, Goods t2) {
+                if ((t1.price - t2.price) >= 0) {
+                    return 1;
+                }
+                else return -1;
+            }
+        });}
+    
+    public List<Goods> findByGroup(GoodsType goodsType, GoodsColour goodsColour) {
+        List<Goods> result = new LinkedList<>();
+
+        goodsList.stream().filter((goodsList) -> ((goodsList.getGoodsType() == goodsType) || (goodsList.getGoodsColour() == goodsColour))).forEachOrdered((goodsList) -> {
+            result.add(goodsList);
+        });
+
+        return result;
     }
     
     public String getStoreName() {
@@ -50,16 +77,15 @@ public class ChemicalSupplyStore {
         this.workingHours = workingHours;
     }
 
-    public ArrayList getGoodsList() {
+    public List<Goods> getGoodsList() {
         return goodsList;
     }
 
-    public void setGoodsList(ArrayList goodsList) {
+    public void setGoodsList(List<Goods> goodsList) {
         this.goodsList = goodsList;
     }
-
-    public static void main(String[] args) {
-        
-    }
     
+    public void addGoods(Goods goods) {
+        this.goodsList.add(goods);
+    }
 }
