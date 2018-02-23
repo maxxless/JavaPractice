@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ChemicalSupplyStore {
+public final class ChemicalSupplyStore {
     
     static int generalGoodsAmount = 6;
     private String storeName;
@@ -25,14 +25,11 @@ public class ChemicalSupplyStore {
     }
     
     public void sortByPrice(List<Goods> result) {
-        result.sort(new Comparator<Goods>() {
-            @Override
-            public int compare(Goods t1, Goods t2) {
-                if ((t1.price - t2.price) >= 0) {
-                    return 1;
-                }
-                else return -1;
+        result.sort((Goods t1, Goods t2) -> {
+            if ((t1.price - t2.price) >= 0) {
+                return 1;
             }
+            else return -1;
         });}
     
     public List<Goods> findByGroup(GoodsType goodsType, GoodsColour goodsColour) {

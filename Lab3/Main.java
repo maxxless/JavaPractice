@@ -6,9 +6,9 @@ import java.util.List;
 public class Main {
 
     public static void printList(List<Goods> List) {
-        for(Goods x: List) {
+        List.forEach((x) -> {
             System.out.println(x.getGoodsType() + " " + x.price);
-        }
+        });
     }
     
     public static void main(String[] args) {
