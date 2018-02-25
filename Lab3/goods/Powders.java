@@ -1,6 +1,6 @@
-package chemicalsupplystore;
+package chemicalsupplystore.goods;
 
-public class Powders extends Goods {
+public final class Powders extends Goods {
     
     private final GoodsType goodsType = GoodsType.POWDERS;
     private final GoodsColour goodsColour = GoodsColour.BLACK;
@@ -8,11 +8,19 @@ public class Powders extends Goods {
     private double weight;
     private String colour;
 
-    public Powders(double price, String material, double weight, String colour) {
+
+    public Powders(String name, double price, int amount, String material, double weight, String colour) {
+        setName(name);
         setPrice(price);
-        this.material = material;
-        this.weight = weight;
-        this.colour = colour;
+        setAmount(amount);
+        setMaterial(material);
+        setWeight(weight);
+        setColour(colour);
+    }
+
+    @Override
+    public String toString() {
+        return "Name = " + name + " Type = " + goodsType + " Colour = " + goodsColour + " Material = " + material + " Weight = " + weight + " Colour = " + colour + " Amount = " + amount + " Price = " + price;
     }
 
     public String getMaterial() {

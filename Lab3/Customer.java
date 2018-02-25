@@ -1,6 +1,6 @@
 package chemicalsupplystore;
 
-public class Customer {
+public final class Customer {
     
     private String name;
     private String surname;

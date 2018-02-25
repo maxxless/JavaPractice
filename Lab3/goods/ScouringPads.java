@@ -1,28 +1,24 @@
-package chemicalsupplystore;
+package chemicalsupplystore.goods;
 
-public class ScouringPads extends Goods {
+public final class ScouringPads extends Goods {
     
     private final GoodsType goodsType = GoodsType.SCOURING_PADS;
     private final GoodsColour goodsColour = GoodsColour.YELLOW;
-    private String material;
     private double rigidity;
-    private double weight;
     private String colour;
 
-    public ScouringPads(double price, String material, double rigidity, double weight, String colour) {
+
+    public ScouringPads(String name, double price, int amount, double rigidity, String colour) {
+        setName(name);
         setPrice(price);
-        this.material = material;
-        this.rigidity = rigidity;
-        this.weight = weight;
-        this.colour = colour;
+        setAmount(amount);
+        setRigidity(rigidity);
+        setColour(colour);
     }
 
-    public String getMaterial() {
-        return material;
-    }
-
-    public void setMaterial(String material) {
-        this.material = material;
+    @Override
+    public String toString() {
+        return "Name = " + name + " Type = " + goodsType + " Colour = " + goodsColour + " Rigidity = " + rigidity + " Colour = " + colour + " Amount = " + amount + " Price = " + price;
     }
 
     public double getRigidity() {
@@ -31,14 +27,6 @@ public class ScouringPads extends Goods {
 
     public void setRigidity(double rigidity) {
         this.rigidity = rigidity;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 
     public String getColour() {

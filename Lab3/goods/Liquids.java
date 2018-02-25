@@ -1,6 +1,6 @@
-package chemicalsupplystore;
+package chemicalsupplystore.goods;
 
-public class Liquids extends Goods {
+public final class Liquids extends Goods {
     
     private final GoodsType goodsType = GoodsType.LIQUIDS;
     private final GoodsColour goodsColour = GoodsColour.BLUE;
@@ -8,11 +8,19 @@ public class Liquids extends Goods {
     private String colour;
     private double density;
 
-    public Liquids(double price, double volume, String colour, double density) {
+
+    public Liquids(String name, double price, int amount, double volume, String colour, double density) {
+        setName(name);
         setPrice(price);
-        this.volume = volume;
-        this.colour = colour;
-        this.density = density;
+        setAmount(amount);
+        setVolume(volume);
+        setColour(colour);
+        setDensity(density);
+    }
+
+    @Override
+    public String toString() {
+        return "Name = " + name + " Type = " + goodsType + " Colour = " + goodsColour + " Volume=" + volume + " Colour = " + colour + " Density = " + density + " Amount = " + amount + " Price = " + price;
     }
 
     public double getVolume() {

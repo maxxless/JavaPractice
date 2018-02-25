@@ -1,25 +1,30 @@
-package chemicalsupplystore;
-
-import java.util.ArrayList;
+package chemicalsupplystore.goods;
 
 public abstract class Goods {
     
-    private String type;
+    String name;
     private String manufacturer;
     double price;
-    private int amount;
-    private boolean availability;
+    int amount;
+    String colour;
+
+    public String getColour() {
+        return colour;
+    }
+
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
 
     public abstract GoodsType getGoodsType();
     public abstract GoodsColour getGoodsColour();
     
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        amount += 1;
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getManufacturer() {
@@ -44,14 +49,6 @@ public abstract class Goods {
 
     public void setAmount(int amount) {
         this.amount = amount;
-    }
-
-    public boolean isAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
     }
     
 }

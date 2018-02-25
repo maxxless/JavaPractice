@@ -1,16 +1,24 @@
-package chemicalsupplystore;
+package chemicalsupplystore.goods;
 
-public class LaundryDetergents extends Goods {
+public final class LaundryDetergents extends Goods {
     
     private final GoodsType goodsType = GoodsType.LAUNDRY_DETERGENTS;
     private final GoodsColour goodsColour = GoodsColour.RED;
     private double density;
     private double volume;
 
-    public LaundryDetergents(double price, double density, double volume) {
+
+    public LaundryDetergents(String name, double price, int amount, double density, double volume) {
+        setName(name);
         setPrice(price);
-        this.density = density;
-        this.volume = volume;
+        setAmount(amount);
+        setDensity(density);
+        setVolume(volume);
+    }
+
+    @Override
+    public String toString() {
+        return "Name = " + name + " Type = " + goodsType + " Colour = " + goodsColour + " Density = " + density + " Volume=" + volume + " Amount = " + amount + " Price = " + price;
     }
 
     public double getDensity() {
