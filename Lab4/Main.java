@@ -17,7 +17,5 @@ public class Main {
         finalStr = stringProcessor.processText(finalStr);
         stringProcessor.showResult(finalStr);
 
-
-        //Max pidr
     }
 }
