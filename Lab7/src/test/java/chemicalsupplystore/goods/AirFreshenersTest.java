@@ -1,11 +1,5 @@
 package chemicalsupplystore.goods;
 
-import static chemicalsupplystore.goods.ChemicalSupplyStore.printList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import chemicalsupplystore.Customer;
 import chemicalsupplystore.Writer;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,22 +11,19 @@ import org.junit.runner.RunWith;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 @IncludeEngines("junit-jupiter")
 public class AirFreshenersTest {
-    private AirFresheners airFresheners;
+    private AirFresheners airFresheners = new AirFresheners("Airic", 10.5, 5, "Nice", 0.5);
+
+    private  ChemicalSupplyStore koshyk;
 
     @BeforeEach
     void init() throws IOException {
-
-        airFresheners = new AirFresheners("Airic", 10.5, 5, "Nice", 0.5);
-        Customer taras = new Customer("Taras", "Gag", 100.5, 10);
-        taras.toString();
-
-        ChemicalSupplyStore koshyk = new ChemicalSupplyStore("koshyk", "Lviv", 10, "from 9 to 21");
-        koshyk.toString();
+        koshyk = new ChemicalSupplyStore("koshyk", "Lviv", 10, "from 9 to 21");
 
         koshyk.addGoods(new AirFresheners("Air Fresh Matic", 4.2, 5, "Fu", 10.0));
         koshyk.addGoods(new AirFresheners("Persik", 3.2, 15, "Otpad", 11.0));
@@ -53,20 +44,18 @@ public class AirFreshenersTest {
         koshyk.addGoods(new ScouringPads("Kuhovarochka", 6.6, 3, 3.6, "Green"));
         koshyk.addGoods(new ScouringPads("Gospodarochka", 7.6, 4, 4.6, "Yellow"));
 
-        System.out.println("\nAvailable goods \n");
-        printList(koshyk.getGoodsList());
-
-        System.out.println("\nAirFresheners:\n");
-        List<Goods> result1 = koshyk.findByGroup(GoodsType.AIR_FRESHENERS, GoodsColour.NONE);
-        printList(result1);
-
-        System.out.println("\nSorted list:\n");
-        koshyk.sortByPrice(result1);
-        printList(result1);
-
-        Writer.writeToFile(koshyk.getGoodsList());
-
     }
+
+    @Test
+    public void testWritter() {
+        Writer wrtiter = new Writer();
+        try {
+            wrtiter.writeToFile(koshyk.getGoodsList());
+        } catch(Exception e) {
+            assertFalse(false, "Unexpected exception was thrown");
+        }
+    }
+
 
     @Test
     public void testGetterAirFreshenersWithValidSmell() throws NoSuchFieldException, IllegalAccessException {
