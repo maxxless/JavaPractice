@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Liquids</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">chemicalsupplystore.goods</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Liquids (chemicalsupplystore.goods)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Liquids</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (30/ 30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package chemicalsupplystore.goods;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public final class Liquids extends Goods {
+<i>4</i>&nbsp;
+<b class="fc"><i>5</i>&nbsp;    private final GoodsType goodsType = GoodsType.LIQUIDS;</b>
+<b class="fc"><i>6</i>&nbsp;    private final GoodsColour goodsColour = GoodsColour.BLUE;</b>
+<i>7</i>&nbsp;    private double volume;
+<i>8</i>&nbsp;    private String colour;
+<i>9</i>&nbsp;    private double density;
+<i>10</i>&nbsp;
+<b class="fc"><i>11</i>&nbsp;    public Liquids(final String name, final double price, final int amount, final double volume, final String colour, final double density) {</b>
+<b class="fc"><i>12</i>&nbsp;        setName(name);</b>
+<b class="fc"><i>13</i>&nbsp;        setPrice(price);</b>
+<b class="fc"><i>14</i>&nbsp;        setAmount(amount);</b>
+<b class="fc"><i>15</i>&nbsp;        setVolume(volume);</b>
+<b class="fc"><i>16</i>&nbsp;        setColour(colour);</b>
+<b class="fc"><i>17</i>&nbsp;        setDensity(density);</b>
+<b class="fc"><i>18</i>&nbsp;    }</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    @Override
+<i>21</i>&nbsp;    public String toString() {
+<b class="fc"><i>22</i>&nbsp;        return &quot;Name = &quot; + getName() + &quot; Type = &quot; + getGoodsType() + &quot; Colour = &quot; + getGoodsColour() + &quot; Volume=&quot;</b>
+<b class="fc"><i>23</i>&nbsp;                + getVolume() + &quot; Colour = &quot; + getColour() + &quot; Density = &quot; + getDensity() + &quot; Amount = &quot; + getAmount()</b>
+<b class="fc"><i>24</i>&nbsp;                + &quot; Price = &quot; + getPrice();</b>
+<i>25</i>&nbsp;    }
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    public double getVolume() {
+<b class="fc"><i>28</i>&nbsp;        return volume;</b>
+<i>29</i>&nbsp;    }
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    public void setVolume(final double volume) {
+<b class="fc"><i>32</i>&nbsp;        if (volume &lt; 0.0) {</b>
+<b class="fc"><i>33</i>&nbsp;            throw new IllegalArgumentException(&quot;Negative number is invalid.&quot;);</b>
+<i>34</i>&nbsp;        }
+<b class="fc"><i>35</i>&nbsp;        this.volume = volume;</b>
+<b class="fc"><i>36</i>&nbsp;    }</b>
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    public String getColour() {
+<b class="fc"><i>39</i>&nbsp;        return colour;</b>
+<i>40</i>&nbsp;    }
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public void setColour(final String colour) {
+<b class="fc"><i>43</i>&nbsp;        if (colour.equals(&quot;&quot;)) {</b>
+<b class="fc"><i>44</i>&nbsp;            throw new IllegalArgumentException(&quot;Empty string is invalid.&quot;);</b>
+<i>45</i>&nbsp;        }
+<b class="fc"><i>46</i>&nbsp;        this.colour = colour;</b>
+<b class="fc"><i>47</i>&nbsp;    }</b>
+<i>48</i>&nbsp;
+<i>49</i>&nbsp;    public double getDensity() {
+<b class="fc"><i>50</i>&nbsp;        return density;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public void setDensity(final double density) {
+<b class="fc"><i>54</i>&nbsp;        if (density &lt; 0.0) {</b>
+<b class="fc"><i>55</i>&nbsp;            throw new IllegalArgumentException(&quot;Negative number is invalid.&quot;);</b>
+<i>56</i>&nbsp;        }
+<b class="fc"><i>57</i>&nbsp;        this.density = density;</b>
+<b class="fc"><i>58</i>&nbsp;    }</b>
+<i>59</i>&nbsp;
+<i>60</i>&nbsp;    @Override
+<i>61</i>&nbsp;    public GoodsType getGoodsType() {
+<b class="fc"><i>62</i>&nbsp;        return goodsType;</b>
+<i>63</i>&nbsp;    }
+<i>64</i>&nbsp;
+<i>65</i>&nbsp;    @Override
+<i>66</i>&nbsp;    public GoodsColour getGoodsColour() {
+<b class="fc"><i>67</i>&nbsp;        return goodsColour;</b>
+<i>68</i>&nbsp;    }
+<i>69</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-03-06 13:53</div>
+</div>
+</body>
+</html>

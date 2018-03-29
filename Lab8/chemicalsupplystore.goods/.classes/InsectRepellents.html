@@ -1,0 +1,139 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: InsectRepellents</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">chemicalsupplystore.goods</a> ]
+</div>
+
+<h1>Coverage Summary for Class: InsectRepellents (chemicalsupplystore.goods)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">InsectRepellents</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/ 24)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package chemicalsupplystore.goods;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;public final class InsectRepellents extends Goods {
+<i>4</i>&nbsp;
+<b class="fc"><i>5</i>&nbsp;    private final GoodsType goodsType = GoodsType.INSECT_REPELLENTS;</b>
+<b class="fc"><i>6</i>&nbsp;    private final GoodsColour goodsColour = GoodsColour.WHITE;</b>
+<i>7</i>&nbsp;    private double killZoneRadius;
+<i>8</i>&nbsp;    private double volume;
+<i>9</i>&nbsp;
+<b class="fc"><i>10</i>&nbsp;    public InsectRepellents(final String name, final double price, final int amount, final double killZoneRadius, final double volume) {</b>
+<b class="fc"><i>11</i>&nbsp;        setName(name);</b>
+<b class="fc"><i>12</i>&nbsp;        setPrice(price);</b>
+<b class="fc"><i>13</i>&nbsp;        setAmount(amount);</b>
+<b class="fc"><i>14</i>&nbsp;        setKillZoneRadius(killZoneRadius);</b>
+<b class="fc"><i>15</i>&nbsp;        setVolume(volume);</b>
+<b class="fc"><i>16</i>&nbsp;    }</b>
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;    @Override
+<i>19</i>&nbsp;    public String toString() {
+<b class="fc"><i>20</i>&nbsp;        return &quot;Name = &quot; + getName() + &quot; Type = &quot; + getGoodsType() + &quot; Colour = &quot; + getGoodsColour()</b>
+<b class="fc"><i>21</i>&nbsp;                + &quot; KillZoneRadius = &quot; + getKillZoneRadius() + &quot; Volume = &quot; + getVolume() + &quot; Amount = &quot; + getAmount()</b>
+<b class="fc"><i>22</i>&nbsp;                + &quot; Price = &quot; + getPrice();</b>
+<i>23</i>&nbsp;    }
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    public double getKillZoneRadius() {
+<b class="fc"><i>26</i>&nbsp;        return killZoneRadius;</b>
+<i>27</i>&nbsp;    }
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    public void setKillZoneRadius(final double killZoneRadius) {
+<b class="fc"><i>30</i>&nbsp;        if (killZoneRadius &lt; 0.0) {</b>
+<b class="fc"><i>31</i>&nbsp;            throw new IllegalArgumentException(&quot;Negative number is invalid.&quot;);</b>
+<i>32</i>&nbsp;        }
+<b class="fc"><i>33</i>&nbsp;        this.killZoneRadius = killZoneRadius;</b>
+<b class="fc"><i>34</i>&nbsp;    }</b>
+<i>35</i>&nbsp;
+<i>36</i>&nbsp;    public double getVolume() {
+<b class="fc"><i>37</i>&nbsp;        return volume;</b>
+<i>38</i>&nbsp;    }
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    public void setVolume(final double volume) {
+<b class="fc"><i>41</i>&nbsp;        if (volume &lt; 0.0) {</b>
+<b class="fc"><i>42</i>&nbsp;            throw new IllegalArgumentException(&quot;Negative number is invalid.&quot;);</b>
+<i>43</i>&nbsp;        }
+<b class="fc"><i>44</i>&nbsp;        this.volume = volume;</b>
+<b class="fc"><i>45</i>&nbsp;    }</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    @Override
+<i>48</i>&nbsp;    public GoodsType getGoodsType() {
+<b class="fc"><i>49</i>&nbsp;        return goodsType;</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    @Override
+<i>53</i>&nbsp;    public GoodsColour getGoodsColour() {
+<b class="fc"><i>54</i>&nbsp;        return goodsColour;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-03-06 13:53</div>
+</div>
+</body>
+</html>

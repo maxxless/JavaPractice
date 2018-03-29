@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: ChemicalSupplyStore</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">chemicalsupplystore.goods</a> ]
+</div>
+
+<h1>Coverage Summary for Class: ChemicalSupplyStore (chemicalsupplystore.goods)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ChemicalSupplyStore</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/ 19)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (49/ 49)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package chemicalsupplystore.goods;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.LinkedList;
+<i>4</i>&nbsp;import java.util.List;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;public final class ChemicalSupplyStore {
+<i>7</i>&nbsp;
+<i>8</i>&nbsp;    private String storeName;
+<i>9</i>&nbsp;    private String address;
+<i>10</i>&nbsp;    private int goodsAmount;
+<i>11</i>&nbsp;    private String workingHours;
+<b class="fc"><i>12</i>&nbsp;    private List&lt;Goods&gt; goodsList = new LinkedList&lt;&gt;();</b>
+<i>13</i>&nbsp;
+<b class="fc"><i>14</i>&nbsp;    public ChemicalSupplyStore(final String storeName, final String address, final int goodsAmount, final String workingHours) {</b>
+<b class="fc"><i>15</i>&nbsp;        setStoreName(storeName);</b>
+<b class="fc"><i>16</i>&nbsp;        setAddress(address);</b>
+<b class="fc"><i>17</i>&nbsp;        setGoodsAmount(goodsAmount);</b>
+<b class="fc"><i>18</i>&nbsp;        setWorkingHours(workingHours);</b>
+<b class="fc"><i>19</i>&nbsp;        setGoodsList(goodsList);</b>
+<b class="fc"><i>20</i>&nbsp;    }</b>
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public static void printList(final List&lt;Goods&gt; list) {
+<b class="fc"><i>23</i>&nbsp;        list.forEach((Goods x) -&gt; {</b>
+<b class="fc"><i>24</i>&nbsp;            System.out.println(x.toString());</b>
+<b class="fc"><i>25</i>&nbsp;        });</b>
+<b class="fc"><i>26</i>&nbsp;    }</b>
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;
+<i>29</i>&nbsp;    @Override
+<i>30</i>&nbsp;    public String toString() {
+<b class="fc"><i>31</i>&nbsp;        return &quot;Store Name = &quot; + getStoreName() + &quot; Address = &quot; + getAddress() + &quot; Goods Amount = &quot; + getGoodsAmount()</b>
+<b class="fc"><i>32</i>&nbsp;                + &quot; Working Hours = &quot; + getWorkingHours() + &quot; Goods List = &quot; + getGoodsList();</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public void sortByPrice(final List&lt;Goods&gt; result) {
+<b class="fc"><i>36</i>&nbsp;        result.sort((Goods t1, Goods t2) -&gt; {</b>
+<b class="fc"><i>37</i>&nbsp;            if ((t1.getPrice() - t2.getPrice()) &gt;= 0) {</b>
+<b class="fc"><i>38</i>&nbsp;                return 1;</b>
+<b class="fc"><i>39</i>&nbsp;            } else return -1;</b>
+<i>40</i>&nbsp;        });
+<b class="fc"><i>41</i>&nbsp;    }</b>
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;    public List&lt;Goods&gt; findByGroup(final GoodsType goodsType, final GoodsColour goodsColour) {
+<b class="fc"><i>44</i>&nbsp;        List&lt;Goods&gt; result = new LinkedList&lt;&gt;();</b>
+<i>45</i>&nbsp;
+<b class="fc"><i>46</i>&nbsp;        goodsList.stream().filter((goodsList) -&gt; ((goodsList.getGoodsType() == goodsType) || (goodsList.getGoodsColour() == goodsColour))).forEachOrdered((goodsList) -&gt; {</b>
+<b class="fc"><i>47</i>&nbsp;            result.add(goodsList);</b>
+<b class="fc"><i>48</i>&nbsp;        });</b>
+<i>49</i>&nbsp;
+<b class="fc"><i>50</i>&nbsp;        return result;</b>
+<i>51</i>&nbsp;    }
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public String getStoreName() {
+<b class="fc"><i>54</i>&nbsp;        return storeName;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public void setStoreName(final String storeName) {
+<b class="fc"><i>58</i>&nbsp;        if (storeName.equals(&quot;&quot;)) {</b>
+<b class="fc"><i>59</i>&nbsp;            throw new IllegalArgumentException(&quot;Empty string is invalid.&quot;);</b>
+<i>60</i>&nbsp;        }
+<b class="fc"><i>61</i>&nbsp;        this.storeName = storeName;</b>
+<b class="fc"><i>62</i>&nbsp;    }</b>
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    public String getAddress() {
+<b class="fc"><i>65</i>&nbsp;        return address;</b>
+<i>66</i>&nbsp;    }
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    public void setAddress(final String address) {
+<b class="fc"><i>69</i>&nbsp;        if (address.equals(&quot;&quot;)) {</b>
+<b class="fc"><i>70</i>&nbsp;            throw new IllegalArgumentException(&quot;Empty string is invalid.&quot;);</b>
+<i>71</i>&nbsp;        }
+<b class="fc"><i>72</i>&nbsp;        this.address = address;</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<i>74</i>&nbsp;
+<i>75</i>&nbsp;    public int getGoodsAmount() {
+<b class="fc"><i>76</i>&nbsp;        return goodsAmount;</b>
+<i>77</i>&nbsp;    }
+<i>78</i>&nbsp;
+<i>79</i>&nbsp;    public void setGoodsAmount(final int goodsAmount) {
+<b class="fc"><i>80</i>&nbsp;        if (goodsAmount &lt; 0) {</b>
+<b class="fc"><i>81</i>&nbsp;            throw new IllegalArgumentException(&quot;Negative number is invalid.&quot;);</b>
+<i>82</i>&nbsp;        }
+<b class="fc"><i>83</i>&nbsp;        this.goodsAmount = goodsAmount;</b>
+<b class="fc"><i>84</i>&nbsp;    }</b>
+<i>85</i>&nbsp;
+<i>86</i>&nbsp;    public String getWorkingHours() {
+<b class="fc"><i>87</i>&nbsp;        return workingHours;</b>
+<i>88</i>&nbsp;    }
+<i>89</i>&nbsp;
+<i>90</i>&nbsp;    public void setWorkingHours(final String workingHours) {
+<b class="fc"><i>91</i>&nbsp;        if (workingHours.equals(&quot;&quot;)) {</b>
+<b class="fc"><i>92</i>&nbsp;            throw new IllegalArgumentException(&quot;Empty string is invalid.&quot;);</b>
+<i>93</i>&nbsp;        }
+<b class="fc"><i>94</i>&nbsp;        this.workingHours = workingHours;</b>
+<b class="fc"><i>95</i>&nbsp;    }</b>
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    public List&lt;Goods&gt; getGoodsList() {
+<b class="fc"><i>98</i>&nbsp;        return goodsList;</b>
+<i>99</i>&nbsp;    }
+<i>100</i>&nbsp;
+<i>101</i>&nbsp;    public void setGoodsList(final List&lt;Goods&gt; goodsList) {
+<b class="fc"><i>102</i>&nbsp;        this.goodsList = goodsList;</b>
+<b class="fc"><i>103</i>&nbsp;    }</b>
+<i>104</i>&nbsp;
+<i>105</i>&nbsp;    public void addGoods(final Goods goods) {
+<b class="fc"><i>106</i>&nbsp;        this.goodsList.add(goods);</b>
+<b class="fc"><i>107</i>&nbsp;    }</b>
+<i>108</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2018-03-06 13:53</div>
+</div>
+</body>
+</html>

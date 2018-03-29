@@ -1,0 +1,36 @@
+Name,Price,Amount,Type,Colour,Smell,Volume
+Air Fresh Matic,4.2,5,AIR_FRESHENERS,WHITE,Fu,10.0
+Name,Price,Amount,Type,Colour,Smell,Volume
+Persik,3.2,15,AIR_FRESHENERS,WHITE,Otpad,11.0
+Name,Price,Amount,Type,Colour,Smell,Volume
+Yabko,4.0,10,AIR_FRESHENERS,WHITE,Nyam-nyam,12.0
+Name,Price,Amount,Type,Colour
+Kitchen,5.2,3,CLEANERS,WHITE
+Name,Price,Amount,Type,Colour
+Floor,2.2,7,CLEANERS,WHITE
+Name,Price,Amount,Type,Colour
+Bathroom,7.2,6,CLEANERS,WHITE
+Name,Price,Amount,Type,Colour
+Polirol',4.3,9,CLEANERS,WHITE
+Name,Price,Amount,Type,Colour,Density,Volume
+Fairy,5.3,3,LAUNDRY_DETERGENTS,RED,5.0,10.0
+Name,Price,Amount,Type,Colour,Density,Volume
+Fairy,5.3,3,LIQUIDS,BLUE,10.0,5.0
+Name,Price,Amount,Type,Colour,Density,Volume
+Perwoll,8.3,7,LIQUIDS,BLUE,11.0,4.0
+Name,Price,Amount,Type,Colour,Density,Volume
+Persil,10.3,7,LIQUIDS,BLUE,21.0,7.0
+Name,Price,Amount,Type,Colour,Kill Zone Radius,Volume
+Anti-comar,4.0,0,INSECT_REPELLENTS,WHITE,8.3,4.0
+Name,Price,Amount,Type,Colour,Kill Zone Radius,Volume
+Anti-bee,11.0,2,INSECT_REPELLENTS,WHITE,3.3,4.5
+Name,Price,Amount,Type,Colour,Kill Zone Radius,Volume
+Anti-fly,10.0,4,INSECT_REPELLENTS,WHITE,3.7,8.5
+Name,Price,Amount,Type,Colour,Weight,Material
+Calgon,5.6,2,POWDERS,BLACK,10.0,Sodium triphosphate
+Name,Price,Amount,Type,Colour,Weight,Material
+Tide,3.6,4,POWDERS,BLACK,10.9,Polyphosphoric acid
+Name,Price,Amount,Type,Colour,Rigidity
+Kuhovarochka,6.6,3,SCOURING_PADS,YELLOW,3.6
+Name,Price,Amount,Type,Colour,Rigidity
+Gospodarochka,7.6,4,SCOURING_PADS,YELLOW,4.6
