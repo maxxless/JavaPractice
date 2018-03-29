@@ -14,7 +14,7 @@ public abstract class Goods {
         setAmount(amount);
     }
 
-    protected Goods() {
+    public Goods() {
     }
 
     public String getHeaders() {
