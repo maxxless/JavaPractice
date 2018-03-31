@@ -1,6 +1,7 @@
 *.iml
 .gradle
 /target
+/.idea/target
 /.idea/libraries/
 /.idea/workspace.xml
 /.idea/tasks.xml
