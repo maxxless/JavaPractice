@@ -1,45 +1,49 @@
 package chemicalsupplystore;
 
-import chemicalsupplystore.goods.AirFresheners;
-import chemicalsupplystore.goods.Cleaners;
-import chemicalsupplystore.goods.Goods;
+import chemicalsupplystore.goods.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.HashMap;
 import java.util.Map;
+import javax.ws.rs.core.Response;
 
 @Path("/chemicals")
-public class JSON {
-    private Map<Integer, Goods> goodsMap;
+public class Json {
+    private static Map<Integer, Goods> goodsMap = new HashMap<>();
+    private AirFresheners airFresheners = new AirFresheners("afa", 5.0, 5, GoodsColour.BLACK, GoodsType.AIR_FRESHENERS, "fee", 5.5);
+    private Cleaners cleaners = new Cleaners("afa", 5.0, 5, GoodsColour.BLACK, GoodsType.CLEANERS);
+
 
     @GET
     @Path("{id}/")
     @Produces(MediaType.APPLICATION_JSON)
     public final Goods getGood(final @PathParam("id") Integer id) {
-        goodsMap = new HashMap<>();
-        goodsMap.put(1, new AirFresheners("afa", 5.0, 5, "faa", 5.1));
-        goodsMap.put(2, new Cleaners("afa", 5.0, 5));
         return goodsMap.get(id);
     }
 
     @PUT
     @Path("{id}/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public final void createGood(final @PathParam("id") Integer id, final Goods goods) {
+    public final Response createGood(final @PathParam("id") Integer id, final Goods goods) {
+        goodsMap.put(1, airFresheners);
+        goodsMap.put(2, cleaners);
         goodsMap.put(id, goods);
-    }
-
-    @POST
-    @Path("{id}/")
-    @Consumes(MediaType.APPLICATION_JSON)
-    public final void replaceGood(final @PathParam("id") Integer id, final Goods goods) {
-        goodsMap.replace(id, goods);
+        return Response.status(200).entity("Good").build();
     }
 
     @DELETE
     @Path("{id}/")
-    public final void deleteGood(final @PathParam("id") Integer position) {
-        goodsMap.remove(position);
+    @Consumes(MediaType.APPLICATION_JSON)
+    public final Response replaceGood(final @PathParam("id") Integer id) {
+        goodsMap.remove(id);
+        return Response.status(200).entity("Good").build();
+    }
+
+    @POST
+    @Path("{id}/")
+    public final Response deleteGood(final @PathParam("id") Integer id) {
+        goodsMap.put(id, cleaners);
+        return Response.status(200).entity("Good").build();
     }
 }

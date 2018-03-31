@@ -2,15 +2,11 @@ package chemicalsupplystore.goods;
 
 public final class AirFresheners extends Goods {
 
-    private final GoodsType goodsType = GoodsType.AIR_FRESHENERS;
-    private final GoodsColour goodsColour = GoodsColour.WHITE;
     private String smell;
     private double volume;
 
-    public AirFresheners(final String name, final double price, final int amount, final String smell, final double volume) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public AirFresheners(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final String smell, final double volume) {
+        super(name, price, amount, goodsType, goodsColour);
         setSmell(smell);
         setVolume(volume);
     }
@@ -50,15 +46,4 @@ public final class AirFresheners extends Goods {
         }
         this.volume = volume;
     }
-
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
-    }
-
 }

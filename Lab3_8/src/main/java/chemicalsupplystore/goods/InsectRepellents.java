@@ -2,15 +2,11 @@ package chemicalsupplystore.goods;
 
 public final class InsectRepellents extends Goods {
 
-    private final GoodsType goodsType = GoodsType.INSECT_REPELLENTS;
-    private final GoodsColour goodsColour = GoodsColour.WHITE;
     private double killZoneRadius;
     private double volume;
 
-    public InsectRepellents(final String name, final double price, final int amount, final double killZoneRadius, final double volume) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public InsectRepellents(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final double killZoneRadius, final double volume) {
+        super(name, price, amount, goodsType, goodsColour);
         setKillZoneRadius(killZoneRadius);
         setVolume(volume);
     }
@@ -52,13 +48,4 @@ public final class InsectRepellents extends Goods {
         this.volume = volume;
     }
 
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
-    }
 }

@@ -2,17 +2,13 @@ package chemicalsupplystore.goods;
 
 public final class Powders extends Goods {
 
-    private final GoodsType goodsType = GoodsType.POWDERS;
-    private final GoodsColour goodsColour = GoodsColour.BLACK;
     private String material;
     private double weight;
     private String colour;
 
 
-    public Powders(final String name, final double price, final int amount, final String material, final double weight, final String colour) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public Powders(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final String material, final double weight, final String colour) {
+        super(name, price, amount, goodsType, goodsColour);
         setMaterial(material);
         setWeight(weight);
         setColour(colour);
@@ -65,15 +61,4 @@ public final class Powders extends Goods {
         }
         this.colour = colour;
     }
-
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
-    }
-
 }

@@ -1,14 +1,16 @@
 package chemicalsupplystore.goods;
 
-public abstract class Goods {
+public class Goods {
 
     private Integer id;
 
     private String name;
     private double price;
     private int amount;
+    private GoodsType goodsType;
+    private GoodsColour goodsColour;
 
-    public Goods(final String name, final double price, final int amount) {
+    public Goods(final String name, final double price, final int amount, final GoodsType goodsType, final GoodsColour goodsColour) {
         setName(name);
         setPrice(price);
         setAmount(amount);
@@ -25,9 +27,21 @@ public abstract class Goods {
         return getName() + "," + getPrice() + "," + getAmount() + "," + getGoodsType() + "," + getGoodsColour();
     }
 
-    public abstract GoodsType getGoodsType();
+    public GoodsType getGoodsType() {
+        return goodsType;
+    }
 
-    public abstract GoodsColour getGoodsColour();
+    public void setGoodsType(final GoodsType goodsType) {
+        this.goodsType = goodsType;
+    }
+
+    public GoodsColour getGoodsColour() {
+        return goodsColour;
+    }
+
+    public void setGoodsColour(final GoodsColour goodsColour) {
+        this.goodsColour = goodsColour;
+    }
 
     public Integer getId() {
         return id;

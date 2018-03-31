@@ -2,13 +2,8 @@ package chemicalsupplystore.goods;
 
 public final class Cleaners extends Goods {
 
-    private final GoodsType goodsType = GoodsType.CLEANERS;
-    private final GoodsColour goodsColour = GoodsColour.WHITE;
-
-    public Cleaners(final String name, final double price, final int amount) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public Cleaners(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType) {
+        super(name, price, amount, goodsType, goodsColour);
     }
 
     public String getHeaders() {
@@ -25,13 +20,4 @@ public final class Cleaners extends Goods {
                 + getAmount() + " Price = " + getPrice();
     }
 
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
-    }
 }

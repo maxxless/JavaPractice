@@ -2,16 +2,12 @@ package chemicalsupplystore.goods;
 
 public final class ScouringPads extends Goods {
 
-    private final GoodsType goodsType = GoodsType.SCOURING_PADS;
-    private final GoodsColour goodsColour = GoodsColour.YELLOW;
     private double rigidity;
     private String colour;
 
 
-    public ScouringPads(final String name, final double price, final int amount, final double rigidity, final String colour) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public ScouringPads(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final double rigidity, final String colour) {
+        super(name, price, amount, goodsType, goodsColour);
         setRigidity(rigidity);
         setColour(colour);
     }
@@ -50,16 +46,6 @@ public final class ScouringPads extends Goods {
             throw new IllegalArgumentException("Empty string is invalid.");
         }
         this.colour = colour;
-    }
-
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
     }
 }
 

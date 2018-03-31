@@ -2,15 +2,11 @@ package chemicalsupplystore.goods;
 
 public final class LaundryDetergents extends Goods {
 
-    private final GoodsType goodsType = GoodsType.LAUNDRY_DETERGENTS;
-    private final GoodsColour goodsColour = GoodsColour.RED;
     private double density;
     private double volume;
 
-    public LaundryDetergents(final String name, final double price, final int amount, final double density, final double volume) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public LaundryDetergents(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final double density, final double volume) {
+        super(name, price, amount, goodsType, goodsColour);
         setDensity(density);
         setVolume(volume);
     }
@@ -49,15 +45,5 @@ public final class LaundryDetergents extends Goods {
             throw new IllegalArgumentException("Negative number is invalid.");
         }
         this.volume = volume;
-    }
-
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
     }
 }

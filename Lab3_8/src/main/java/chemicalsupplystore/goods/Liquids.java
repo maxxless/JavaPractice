@@ -2,16 +2,12 @@ package chemicalsupplystore.goods;
 
 public final class Liquids extends Goods {
 
-    private final GoodsType goodsType = GoodsType.LIQUIDS;
-    private final GoodsColour goodsColour = GoodsColour.BLUE;
     private double volume;
     private String colour;
     private double density;
 
-    public Liquids(final String name, final double price, final int amount, final double volume, final String colour, final double density) {
-        setName(name);
-        setPrice(price);
-        setAmount(amount);
+    public Liquids(final String name, final double price, final int amount, final GoodsColour goodsColour, final GoodsType goodsType, final double volume, final String colour, final double density) {
+        super(name, price, amount, goodsType, goodsColour);
         setVolume(volume);
         setColour(colour);
         setDensity(density);
@@ -65,13 +61,4 @@ public final class Liquids extends Goods {
         this.density = density;
     }
 
-    @Override
-    public GoodsType getGoodsType() {
-        return goodsType;
-    }
-
-    @Override
-    public GoodsColour getGoodsColour() {
-        return goodsColour;
-    }
 }
