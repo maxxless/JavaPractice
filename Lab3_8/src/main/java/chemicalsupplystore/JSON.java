@@ -11,9 +11,6 @@ import javax.ws.rs.core.Response;
 @Path("/chemicals")
 public class Json {
     private static Map<Integer, Goods> goodsMap = new HashMap<>();
-    private AirFresheners airFresheners = new AirFresheners("afa", 5.0, 5, GoodsColour.BLACK, GoodsType.AIR_FRESHENERS, "fee", 5.5);
-    private Cleaners cleaners = new Cleaners("afa", 5.0, 5, GoodsColour.BLACK, GoodsType.CLEANERS);
-
 
     @GET
     @Path("{id}/")
@@ -23,12 +20,9 @@ public class Json {
     }
 
     @PUT
-    @Path("{id}/")
     @Consumes(MediaType.APPLICATION_JSON)
-    public final Response createGood(final @PathParam("id") Integer id, final Goods goods) {
-        goodsMap.put(1, airFresheners);
-        goodsMap.put(2, cleaners);
-        goodsMap.put(id, goods);
+    public final Response createGood(final Goods goods) {
+        goodsMap.put(goods.getId(), goods);
         return Response.status(200).entity("Good").build();
     }
 
@@ -42,8 +36,8 @@ public class Json {
 
     @POST
     @Path("{id}/")
-    public final Response deleteGood(final @PathParam("id") Integer id) {
-        goodsMap.put(id, cleaners);
+    public final Response deleteGood(final @PathParam("id") Integer id, final Goods goods) {
+        goodsMap.replace(id, goods);
         return Response.status(200).entity("Good").build();
     }
 }
