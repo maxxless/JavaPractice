@@ -1,16 +1,32 @@
 package chemicalsupplystore.goods;
 
+import javax.persistence.*;
+
+@Entity
 public class Goods {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "id")
     private Integer id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "price")
     private double price;
+
+    @Column(name = "amount")
     private int amount;
+
+    @Column(name = "goodsType")
     private GoodsType goodsType;
+
+    @Column(name = "goodsColour")
     private GoodsColour goodsColour;
 
-    public Goods(final String name, final double price, final int amount, final GoodsType goodsType, final GoodsColour goodsColour) {
+
+    public Goods(String name, double price, int amount, GoodsType goodsType, GoodsColour goodsColour) {
         setName(name);
         setPrice(price);
         setAmount(amount);
@@ -31,7 +47,7 @@ public class Goods {
         return goodsType;
     }
 
-    public void setGoodsType(final GoodsType goodsType) {
+    public void setGoodsType(GoodsType goodsType) {
         this.goodsType = goodsType;
     }
 
@@ -39,7 +55,7 @@ public class Goods {
         return goodsColour;
     }
 
-    public void setGoodsColour(final GoodsColour goodsColour) {
+    public void setGoodsColour(GoodsColour goodsColour) {
         this.goodsColour = goodsColour;
     }
 
@@ -47,7 +63,7 @@ public class Goods {
         return id;
     }
 
-    public void setId(final Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,7 +71,7 @@ public class Goods {
         return name;
     }
 
-    public void setName(final String name) {
+    public void setName(String name) {
         if (name.equals("")) {
             throw new IllegalArgumentException("Empty string is invalid.");
         }
@@ -66,7 +82,7 @@ public class Goods {
         return price;
     }
 
-    public void setPrice(final double price) {
+    public void setPrice(double price) {
         if (price < 0.0) {
             throw new IllegalArgumentException("Negative number is invalid.");
         }
@@ -77,7 +93,7 @@ public class Goods {
         return amount;
     }
 
-    public void setAmount(final int amount) {
+    public void setAmount(int amount) {
         if (amount < 0) {
             throw new IllegalArgumentException("Negative number is invalid.");
         }
