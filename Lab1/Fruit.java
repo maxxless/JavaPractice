@@ -2,78 +2,78 @@ package fruit;
 
 public final class Fruit {
 	
-    private String Name;
-    private String Colour;
-    private int Quantity;
-    private double Price;
-    private double Weight;
+    private String name;
+    private String colour;
+    private int quantity;
+    private double price;
+    private double weight;
         
-	private static double GeneralWeight = 0.0;
+	private static double generalWeight = 0.0;
 	
 	public Fruit() {
-		Name = "Apple";
-		Colour = "Red";
-		Quantity = 2;
-		Price = 18.5;
-		Weight = 0.25;
-		GeneralWeight += (Weight*Quantity);
+		name = "Apple";
+		colour = "Red";
+		quantity = 2;
+		price = 18.5;
+		weight = 0.25;
+		generalWeight += (weight*quantity);
 	}
 	
-	public Fruit(String Name, String Colour, int Quantity, double Price){
-		setName(Name);
-		setColour(Colour);
-		setQuantity(Quantity);
-		setPrice(Price);
-		Weight = 0.87;
-		GeneralWeight += (Weight*Quantity);
+	public Fruit(String name, String colour, int quantity, double price){
+		setName(name);
+		setColour(colour);
+		setQuantity(quantity);
+		setPrice(price);
+		weight = 0.87;
+		generalWeight += (weight*quantity);
 	}
 	
-	public Fruit(String Name, String Colour, int Quantity, double Price, double Weight){
-		setName(Name);
-		setColour(Colour);
-		setQuantity(Quantity);
-		setPrice(Price);
-		setWeight(Weight);
+	public Fruit(String name, String colour, int quantity, double price, double weight){
+		setName(name);
+		setColour(colour);
+		setQuantity(quantity);
+		setPrice(price);
+		setWeight(weight);
 	}
 	
 	public String getName() {
-		return Name;
+		return name;
 	}
-	public void setName(String Name) {
-		this.Name = Name;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getColour() {
-		return Colour;
+		return colour;
 	}
 	
-	public void setColour(String Colour) {
-		this.Colour = Colour;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 	
 	public int getQuantity() {
-		return Quantity;
+		return quantity;
 	}
 	
-	public void setQuantity(int Quantity) {
-		this.Quantity = Quantity;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	public double getPrice() {
-		return Price;
+		return price;
 	}
 	
-	public void setPrice(double Price) {
-		this.Price = Price;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	
 	public double getWeight() {
-		return Weight;
+		return weight;
 	}
 	
-	public void setWeight(double Weight) {
-	        GeneralWeight = GeneralWeight - this.Weight + Weight;
-		this.Weight=Weight;
+	public void setWeight(double weight) {
+	        generalWeight = generalWeight - this.weight + weight;
+		this.weight=weight;
 	}
 	
         @Override
@@ -82,19 +82,19 @@ public final class Fruit {
         }
 	
 	public static void printStaticSum() {
-		System.out.println("Now total fruits' weight is " + GeneralWeight + " kg.");
+		System.out.println("Now total fruits' weight is " + generalWeight + " kg.");
 	}
 	
 	public void printSum() {
-		System.out.println("Total weight of this " + Name + "s is " + Weight + " kg.");
+		System.out.println("Total weight of this " + name + "s is " + weight + " kg.");
 	}
 	
-	public void resetValues(String Name, String Colour, int Quantity, double Price, double Weight) {
-		setName(Name);
-		setColour(Colour);
-		setQuantity(Quantity);
-		setPrice(Price);
-		setWeight(Weight);
+	public void resetValues(String name, String colour, int quantity, double price, double weight) {
+		setName(name);
+		setColour(colour);
+		setQuantity(quantity);
+		setPrice(price);
+		setWeight(weight);
 	}
 
 	public static void main(String[] args) {
